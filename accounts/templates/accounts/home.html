@@ -1,0 +1,18 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+    <h1>Bienvenido</h1>
+    {% if user.is_authenticated %}
+        <p>Hola, <strong>{{ user.username }}</strong>!</p>
+        <div class="actions">
+            <a href="{% url 'update_password' %}" class="btn">Actualizar Contraseña</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    {% else %}
+        <p>No has iniciado sesión.</p>
+        <div class="actions">
+            <a href="{% url 'login' %}" class="btn">Iniciar Sesión</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary">Registrarse</a>
+        </div>
+    {% endif %}
+{% endblock %}
