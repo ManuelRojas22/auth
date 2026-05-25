@@ -4,24 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    /* ---- Brand (Teal) ---- */
-    --brand-50: #f0fdfa;
-    --brand-100: #ccfbf1;
-    --brand-200: #99f6e4;
-    --brand-300: #5eead4;
-    --brand-400: #2dd4bf;
-    --brand-500: #14b8a6;
-    --brand-600: #0d9488;
-    --brand-700: #0f766e;
-    --brand-800: #115e59;
-    --brand-900: #134e4a;
+    /* ---- Brand (Sky Blue) ---- */
+    --brand-50: #f0f9ff;
+    --brand-100: #e0f2fe;
+    --brand-200: #bae6fd;
+    --brand-300: #7dd3fc;
+    --brand-400: #38bdf8;
+    --brand-500: #0ea5e9;
+    --brand-600: #0284c7;
+    --brand-700: #0369a1;
+    --brand-800: #075985;
+    --brand-900: #0c4a6e;
 
-    --brand-gradient: linear-gradient(135deg, #0d9488, #14b8a6);
-    --brand-gradient-hover: linear-gradient(135deg, #14b8a6, #2dd4bf);
-    --brand-glow: rgba(13, 148, 136, 0.12);
-    --brand-ring: rgba(13, 148, 136, 0.10);
-    --brand-shadow: 0 8px 30px rgba(13, 148, 136, 0.18);
-    --brand-shadow-hover: 0 12px 44px rgba(13, 148, 136, 0.28);
+    --brand-gradient: linear-gradient(135deg, #0ea5e9, #38bdf8);
+    --brand-gradient-hover: linear-gradient(135deg, #38bdf8, #7dd3fc);
+    --brand-glow: rgba(14, 165, 233, 0.10);
+    --brand-ring: rgba(14, 165, 233, 0.08);
+    --brand-shadow: 0 8px 30px rgba(14, 165, 233, 0.15);
+    --brand-shadow-hover: 0 12px 44px rgba(14, 165, 233, 0.25);
 
     /* ---- Surface ---- */
     --surface-page: #ffffff;
@@ -33,7 +33,7 @@
     /* ---- Borders ---- */
     --border-card: rgba(0, 0, 0, 0.04);
     --border-input: rgba(0, 0, 0, 0.07);
-    --border-input-focus: rgba(13, 148, 136, 0.40);
+    --border-input-focus: rgba(14, 165, 233, 0.40);
     --border-subtle: rgba(0, 0, 0, 0.04);
 
     /* ---- Text ---- */
@@ -97,8 +97,8 @@ body::before {
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(13, 148, 136, 0.04) 0%, transparent 65%),
-        radial-gradient(ellipse 700px 500px at 85% 80%, rgba(45, 212, 191, 0.03) 0%, transparent 65%);
+        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 65%),
+        radial-gradient(ellipse 700px 500px at 85% 80%, rgba(56, 189, 248, 0.04) 0%, transparent 65%);
     z-index: 0;
     pointer-events: none;
 }
@@ -276,7 +276,7 @@ body::before {
     letter-spacing: 2px;
     color: var(--brand-500);
     margin-bottom: 12px;
-    background: rgba(13, 148, 136, 0.06);
+    background: rgba(14, 165, 233, 0.06);
     padding: 4px 14px;
     border-radius: var(--radius-full);
 }
@@ -727,7 +727,7 @@ body::before {
     .form-control:-webkit-autofill,
     .form-control:-webkit-autofill:hover,
     .form-control:-webkit-autofill:focus {
-        -webkit-box-shadow: 0 0 0 30px #14102a inset;
+        -webkit-box-shadow: 0 0 0 30px #0c1a2e inset;
         -webkit-text-fill-color: #f1f5f9;
     }
 
