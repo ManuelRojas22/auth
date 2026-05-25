@@ -129,54 +129,85 @@ body::before {
     }
 }
 
-/* ---- Floating shoes ---- */
-.shoe {
+/* ---- Floating objects all over the page ---- */
+.float-item {
     position: fixed;
-    font-size: 44px;
-    opacity: 0.06;
     pointer-events: none;
     z-index: 0;
     animation-timing-function: var(--ease-in-out);
     animation-iteration-count: infinite;
 }
 
-.shoe:nth-child(1) { animation-name: shoeDrift1; animation-duration: 24s; }
-.shoe:nth-child(2) { animation-name: shoeDrift2; animation-duration: 30s; }
-.shoe:nth-child(3) { animation-name: shoeDrift3; animation-duration: 26s; }
-.shoe:nth-child(4) { animation-name: shoeDrift1; animation-duration: 32s; animation-delay: -8s; }
-.shoe:nth-child(5) { animation-name: shoeDrift2; animation-duration: 28s; animation-delay: -14s; }
-.shoe:nth-child(6) { animation-name: shoeDrift3; animation-duration: 22s; animation-delay: -20s; }
-.shoe:nth-child(7) { animation-name: shoeDrift1; animation-duration: 35s; animation-delay: -5s; }
-.shoe:nth-child(8) { animation-name: shoeDrift2; animation-duration: 26s; animation-delay: -12s; }
-.shoe:nth-child(9) { animation-name: shoeDrift3; animation-duration: 30s; animation-delay: -18s; }
+.float-item:nth-child(1)  { animation-name: floatPath1;  animation-duration: 22s;  font-size: 38px; opacity: 0.05; }
+.float-item:nth-child(2)  { animation-name: floatPath2;  animation-duration: 28s;  font-size: 44px; opacity: 0.04; }
+.float-item:nth-child(3)  { animation-name: floatPath3;  animation-duration: 25s;  font-size: 32px; opacity: 0.05; }
+.float-item:nth-child(4)  { animation-name: floatPath4;  animation-duration: 30s;  font-size: 48px; opacity: 0.04; }
+.float-item:nth-child(5)  { animation-name: floatPath5;  animation-duration: 26s;  font-size: 36px; opacity: 0.05; }
+.float-item:nth-child(6)  { animation-name: floatPath1;  animation-duration: 32s;  font-size: 42px; opacity: 0.04; animation-delay: -7s; }
+.float-item:nth-child(7)  { animation-name: floatPath2;  animation-duration: 24s;  font-size: 30px; opacity: 0.05; animation-delay: -12s; }
+.float-item:nth-child(8)  { animation-name: floatPath3;  animation-duration: 35s;  font-size: 50px; opacity: 0.04; animation-delay: -5s; }
+.float-item:nth-child(9)  { animation-name: floatPath4;  animation-duration: 27s;  font-size: 34px; opacity: 0.05; animation-delay: -15s; }
+.float-item:nth-child(10) { animation-name: floatPath5;  animation-duration: 33s;  font-size: 40px; opacity: 0.04; animation-delay: -10s; }
+.float-item:nth-child(11) { animation-name: floatPath1;  animation-duration: 29s;  font-size: 28px; opacity: 0.05; animation-delay: -3s; }
+.float-item:nth-child(12) { animation-name: floatPath2;  animation-duration: 36s;  font-size: 46px; opacity: 0.04; animation-delay: -18s; }
+.float-item:nth-child(13) { animation-name: floatPath3;  animation-duration: 23s;  font-size: 52px; opacity: 0.05; animation-delay: -9s; }
+.float-item:nth-child(14) { animation-name: floatPath4;  animation-duration: 31s;  font-size: 26px; opacity: 0.04; animation-delay: -14s; }
+.float-item:nth-child(15) { animation-name: floatPath5;  animation-duration: 34s;  font-size: 45px; opacity: 0.05; animation-delay: -20s; }
+.float-item:nth-child(16) { animation-name: floatPath1;  animation-duration: 21s;  font-size: 56px; opacity: 0.04; animation-delay: -6s; }
+.float-item:nth-child(17) { animation-name: floatPath2;  animation-duration: 37s;  font-size: 33px; opacity: 0.05; animation-delay: -11s; }
+.float-item:nth-child(18) { animation-name: floatPath3;  animation-duration: 26s;  font-size: 48px; opacity: 0.04; animation-delay: -16s; }
+.float-item:nth-child(19) { animation-name: floatPath4;  animation-duration: 30s;  font-size: 30px; opacity: 0.05; animation-delay: -4s; }
+.float-item:nth-child(20) { animation-name: floatPath5;  animation-duration: 28s;  font-size: 40px; opacity: 0.04; animation-delay: -13s; }
 
-@keyframes shoeDrift1 {
-    0%   { transform: translate(-80px, 20vh) rotate(-15deg) scale(1); opacity: 0; }
-    5%   { opacity: 0.05; }
-    25%  { transform: translate(25vw, 10vh) rotate(5deg) scale(1.1); }
-    50%  { transform: translate(55vw, 40vh) rotate(-8deg) scale(0.95); }
-    75%  { transform: translate(85vw, 15vh) rotate(12deg) scale(1.05); }
-    95%  { opacity: 0.05; }
-    100% { transform: translate(120vw, 20vh) rotate(-15deg) scale(1); opacity: 0; }
+/* ---- 5 unique float paths across the entire page ---- */
+@keyframes floatPath1 {
+    0%   { transform: translate(-100px, 5vh)  rotate(-20deg) scale(0.8);  opacity: 0; }
+    8%   { opacity: 0.05; }
+    25%  { transform: translate(20vw,  15vh)  rotate(10deg)  scale(1.1); }
+    50%  { transform: translate(50vw,  70vh)  rotate(-15deg) scale(0.9); }
+    75%  { transform: translate(80vw,  30vh)  rotate(20deg)  scale(1.05); }
+    92%  { opacity: 0.05; }
+    100% { transform: translate(120vw, 10vh)  rotate(-10deg) scale(0.8);  opacity: 0; }
 }
 
-@keyframes shoeDrift2 {
-    0%   { transform: translate(90vw, 60vh) rotate(25deg) scale(0.9); opacity: 0; }
-    5%   { opacity: 0.05; }
-    25%  { transform: translate(65vw, 30vh) rotate(-10deg) scale(1.05); }
-    50%  { transform: translate(30vw, 70vh) rotate(15deg) scale(1); }
-    75%  { transform: translate(5vw, 45vh) rotate(-5deg) scale(0.95); }
-    95%  { opacity: 0.05; }
-    100% { transform: translate(-50vw, 60vh) rotate(25deg) scale(0.9); opacity: 0; }
+@keyframes floatPath2 {
+    0%   { transform: translate(110vw, 80vh)  rotate(30deg)  scale(1);    opacity: 0; }
+    8%   { opacity: 0.04; }
+    25%  { transform: translate(70vw,  50vh)  rotate(-15deg) scale(0.85); }
+    50%  { transform: translate(35vw,  20vh)  rotate(20deg)  scale(1.1);  }
+    75%  { transform: translate(10vw,  60vh)  rotate(-10deg) scale(0.95); }
+    92%  { opacity: 0.04; }
+    100% { transform: translate(-60vw,  90vh) rotate(15deg)  scale(1);    opacity: 0; }
 }
 
-@keyframes shoeDrift3 {
-    0%   { transform: translate(40vw, -60px) rotate(0deg) scale(1); opacity: 0; }
-    5%   { opacity: 0.05; }
-    33%  { transform: translate(60vw, 25vh) rotate(-20deg) scale(1.15); }
-    66%  { transform: translate(20vw, 55vh) rotate(10deg) scale(0.9); }
-    95%  { opacity: 0.05; }
-    100% { transform: translate(40vw, 110vh) rotate(0deg) scale(1); opacity: 0; }
+@keyframes floatPath3 {
+    0%   { transform: translate(30vw,  -80px)  rotate(0deg)   scale(1);   opacity: 0; }
+    8%   { opacity: 0.05; }
+    25%  { transform: translate(60vw,  18vh)   rotate(-25deg) scale(1.15); }
+    50%  { transform: translate(80vw,  55vh)   rotate(15deg)  scale(0.9);  }
+    75%  { transform: translate(40vw,  85vh)   rotate(-10deg) scale(1.05); }
+    92%  { opacity: 0.05; }
+    100% { transform: translate(25vw,  120vh)  rotate(5deg)   scale(1);   opacity: 0; }
+}
+
+@keyframes floatPath4 {
+    0%   { transform: translate(-50vw,  40vh)  rotate(-10deg) scale(0.9);  opacity: 0; }
+    8%   { opacity: 0.04; }
+    25%  { transform: translate(15vw,   65vh)  rotate(15deg)  scale(1.05); }
+    50%  { transform: translate(60vw,   40vh)  rotate(-20deg) scale(0.95); }
+    75%  { transform: translate(90vw,   75vh)  rotate(10deg)  scale(1.1);  }
+    92%  { opacity: 0.04; }
+    100% { transform: translate(130vw,  30vh)  rotate(-5deg)  scale(0.9);  opacity: 0; }
+}
+
+@keyframes floatPath5 {
+    0%   { transform: translate(80vw,   -60px)  rotate(15deg)  scale(0.85); opacity: 0; }
+    8%   { opacity: 0.05; }
+    25%  { transform: translate(55vw,   25vh)   rotate(-10deg) scale(1.1);  }
+    50%  { transform: translate(20vw,   50vh)   rotate(20deg)  scale(0.95); }
+    75%  { transform: translate(5vw,    20vh)   rotate(-15deg) scale(1.05); }
+    92%  { opacity: 0.05; }
+    100% { transform: translate(-40vw,  -40px)  rotate(5deg)   scale(0.85); opacity: 0; }
 }
 
 /* ============================================
@@ -555,7 +586,7 @@ body::before {
 /* ---- Tablet landscape & small desktop (1024px) ---- */
 @media (max-width: 1024px) {
     .card { padding: 40px 32px 32px; }
-    .shoe { font-size: 32px; opacity: 0.035; }
+    .float-item { font-size: 30px; opacity: 0.03; }
 }
 
 /* ---- Tablet portrait (768px) ---- */
@@ -599,7 +630,7 @@ body::before {
     .messages { margin-bottom: 18px; }
     .message { padding: 10px 14px; font-size: 12.5px; }
 
-    .shoe { font-size: 26px; opacity: 0.03; }
+    .float-item { display: none; }
 }
 
 /* ---- Small tablet / large phone (600px) ---- */
@@ -657,7 +688,7 @@ body::before {
     .errorlist { padding: 8px 12px; }
     .errorlist li { font-size: 12px; }
 
-    .shoe { display: none; }
+    .float-item { display: none; }
 }
 
 /* ---- Phone (480px) ---- */
@@ -722,7 +753,7 @@ body::before {
     }
     .errorlist li { font-size: 11px; }
 
-    .shoe { display: none; }
+    .float-item { display: none; }
 }
 
 
