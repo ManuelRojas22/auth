@@ -35,3 +35,63 @@ CREATE TABLE accounts_passwordresettoken (
     CONSTRAINT fk_reset_token_user FOREIGN KEY (user_id)
         REFERENCES auth_user(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================
+-- Vistas
+-- ============================================
+
+-- Vista: usuarios activos (para login)
+CREATE OR REPLACE VIEW vw_active_users AS
+SELECT id, username, email, password, is_active, date_joined
+FROM auth_user
+WHERE is_active = 1;
+
+-- Vista: tokens válidos (no usados, < 24h)
+CREATE OR REPLACE VIEW vw_valid_reset_tokens AS
+SELECT t.id, t.user_id, t.token, t.created_at,
+       u.username, u.email
+FROM accounts_passwordresettoken t
+JOIN auth_user u ON u.id = t.user_id
+WHERE t.is_used = 0
+  AND t.created_at >= NOW() - INTERVAL 24 HOUR;
+
+-- ============================================
+-- Triggers
+-- ============================================
+
+-- Trigger: antes de insertar usuario, limpiar email
+DROP TRIGGER IF EXISTS trg_user_before_insert;
+DELIMITER //
+CREATE TRIGGER trg_user_before_insert
+BEFORE INSERT ON auth_user
+FOR EACH ROW
+BEGIN
+    SET NEW.email = LOWER(TRIM(NEW.email));
+    SET NEW.username = LOWER(TRIM(NEW.username));
+    SET NEW.date_joined = NOW();
+END//
+DELIMITER ;
+
+-- Trigger: antes de actualizar usuario, evitar sobrescribir last_login
+DROP TRIGGER IF EXISTS trg_user_before_update;
+DELIMITER //
+CREATE TRIGGER trg_user_before_update
+BEFORE UPDATE ON auth_user
+FOR EACH ROW
+BEGIN
+    IF OLD.password <> NEW.password THEN
+        SET NEW.last_login = OLD.last_login;
+    END IF;
+END//
+DELIMITER ;
+
+-- Trigger: antes de insertar token, forzar created_at
+DROP TRIGGER IF EXISTS trg_token_before_insert;
+DELIMITER //
+CREATE TRIGGER trg_token_before_insert
+BEFORE INSERT ON accounts_passwordresettoken
+FOR EACH ROW
+BEGIN
+    SET NEW.created_at = NOW();
+END//
+DELIMITER ;
