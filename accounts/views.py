@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
+from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -13,10 +13,9 @@ def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, 'Registro exitoso. Bienvenido!')
-            return redirect('home')
+            form.save()
+            messages.success(request, 'Cuenta creada exitosamente. Ahora inicia sesión.')
+            return redirect('login')
     else:
         form = RegisterForm()
     return render(request, 'accounts/register.html', {'form': form})
@@ -28,7 +27,7 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             messages.success(request, f'Bienvenido de nuevo, {user.username}!')
-            return redirect('home')
+            return redirect('update_password')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos')
     else:
@@ -52,8 +51,9 @@ def update_password_view(request):
                 user.set_password(form.cleaned_data['new_password'])
                 user.save()
                 update_session_auth_hash(request, user)
-                messages.success(request, 'Contraseña actualizada correctamente')
-                return redirect('home')
+                messages.success(request, 'Contraseña actualizada correctamente. Inicia sesión de nuevo.')
+                logout(request)
+                return redirect('login')
     else:
         form = UpdatePasswordForm()
     return render(request, 'accounts/update_password.html', {'form': form})
@@ -66,7 +66,6 @@ def reset_password_request_view(request):
             try:
                 user = User.objects.get(email=email)
                 token = PasswordResetToken.objects.create(user=user)
-                # En producción, enviar email con el token
                 messages.success(
                     request,
                     f'Se ha enviado un enlace de recuperación a {email}. '
@@ -95,6 +94,3 @@ def reset_password_confirm_view(request, token):
     else:
         form = PasswordResetConfirmForm()
     return render(request, 'accounts/reset_password.html', {'form': form, 'step': 'confirm'})
-
-def home_view(request):
-    return render(request, 'accounts/home.html')

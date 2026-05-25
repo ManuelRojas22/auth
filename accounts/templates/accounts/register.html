@@ -1,13 +1,61 @@
-{% extends 'accounts/base.html' %}
-{% block title %}Registro{% endblock %}
-{% block content %}
-    <h1>Crear Cuenta</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn">Registrarse</button>
-    </form>
-    <div class="links">
-        <a href="{% url 'login' %}">Ya tengo una cuenta</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">✨</div>
+            <h1>Crear una cuenta</h1>
+            <p class="subtitle">Regístrate para empezar</p>
+
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% if form.errors %}
+                <ul class="errorlist">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" name="username" class="form-control" placeholder="Elige un nombre de usuario" maxlength="150" required>
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" class="form-control" placeholder="tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="form-control" placeholder="Crea una contraseña segura" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirmar contraseña</label>
+                    <input type="password" name="password2" class="form-control" placeholder="Repite la contraseña" required>
+                </div>
+                <button type="submit" class="btn">Crear Cuenta</button>
+            </form>
+            <div class="links">
+                <a href="{% url 'login' %}">¿Ya tienes cuenta? Inicia sesión</a>
+            </div>
+        </div>
     </div>
-{% endblock %}
+</body>
+</html>
