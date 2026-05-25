@@ -29,13 +29,26 @@
     <div class="float-item">🎨</div>
     <div class="float-item">💐</div>
 
-    <div class="page">
-        <div class="card">
-            <div class="card-header">
-                <div class="brand-tag">SneakerAuth</div>
-                <div class="icon-box">🎁</div>
+    <div class="auth-wrapper">
+        <div class="auth-sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-icon">🎁</div>
+                <div class="sidebar-brand">SneakerAuth</div>
+                <h2 class="sidebar-title">Únete a la comunidad sneaker</h2>
+                <p class="sidebar-desc">Crea tu cuenta y accede a lanzamientos exclusivos, envío gratuito y un 10% de descuento en tu primera compra.</p>
+                <div class="sidebar-features">
+                    <div class="sidebar-feature"><span>✓</span> 10% dto. primera compra</div>
+                    <div class="sidebar-feature"><span>✓</span> Lanzamientos exclusivos</div>
+                    <div class="sidebar-feature"><span>✓</span> Envío gratis siempre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-form">
+            <div class="form-header">
+                <div class="brand-mobile">👟 SneakerAuth</div>
                 <h1>Crear una cuenta</h1>
-                <p class="subtitle">Regístrate y descubre ofertas exclusivas</p>
+                <p>Regístrate y descubre ofertas exclusivas</p>
             </div>
 
             {% if messages %}
@@ -93,7 +106,7 @@
                 <button type="submit" class="btn">Crear Cuenta</button>
             </form>
 
-            <div class="links">
+            <div class="form-links">
                 <a href="{% url 'login' %}">¿Ya tienes cuenta? Inicia sesión</a>
                 <a href="{% url 'reset_password' %}">Olvidé mi contraseña</a>
                 <a href="{% url 'update_password' %}">Actualizar mi contraseña</a>
