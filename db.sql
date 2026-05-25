@@ -24,12 +24,13 @@ USE auth_db;
 -- ============================================
 -- Tabla: PasswordResetToken (personalizada)
 -- ============================================
-CREATE TABLE IF NOT EXISTS accounts_passwordresettoken (
+DROP TABLE IF EXISTS accounts_passwordresettoken;
+CREATE TABLE accounts_passwordresettoken (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     token CHAR(36) NOT NULL UNIQUE,
     created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    is_used TINYINT(1) NOT NULL DEFAULT 0,
+    is_used TINYINT NOT NULL DEFAULT 0,
     CONSTRAINT fk_reset_token_user FOREIGN KEY (user_id)
         REFERENCES auth_user(id)
         ON DELETE CASCADE
