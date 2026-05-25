@@ -91,23 +91,49 @@ body {
     padding: 20px;
 }
 
-/* ---- Clean background ---- */
+/* ---- Animated background ---- */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background:
-        radial-gradient(ellipse 800px 600px at 15% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 65%),
-        radial-gradient(ellipse 700px 500px at 85% 80%, rgba(56, 189, 248, 0.02) 0%, transparent 65%);
     z-index: 0;
     pointer-events: none;
+    animation: bgShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgShift {
+    0% {
+        background:
+            radial-gradient(ellipse 800px 600px at 10% 15%, rgba(14, 165, 233, 0.05) 0%, transparent 65%),
+            radial-gradient(ellipse 700px 500px at 90% 85%, rgba(56, 189, 248, 0.03) 0%, transparent 65%);
+    }
+    25% {
+        background:
+            radial-gradient(ellipse 750px 550px at 30% 40%, rgba(14, 165, 233, 0.04) 0%, transparent 65%),
+            radial-gradient(ellipse 650px 480px at 70% 60%, rgba(99, 102, 241, 0.03) 0%, transparent 65%);
+    }
+    50% {
+        background:
+            radial-gradient(ellipse 850px 650px at 60% 25%, rgba(56, 189, 248, 0.05) 0%, transparent 65%),
+            radial-gradient(ellipse 720px 520px at 25% 75%, rgba(14, 165, 233, 0.03) 0%, transparent 65%);
+    }
+    75% {
+        background:
+            radial-gradient(ellipse 780px 580px at 70% 60%, rgba(99, 102, 241, 0.04) 0%, transparent 65%),
+            radial-gradient(ellipse 680px 500px at 35% 30%, rgba(56, 189, 248, 0.03) 0%, transparent 65%);
+    }
+    100% {
+        background:
+            radial-gradient(ellipse 800px 600px at 15% 20%, rgba(14, 165, 233, 0.05) 0%, transparent 65%),
+            radial-gradient(ellipse 700px 500px at 85% 80%, rgba(56, 189, 248, 0.03) 0%, transparent 65%);
+    }
 }
 
 /* ---- Floating shoes ---- */
 .shoe {
     position: fixed;
-    font-size: 40px;
-    opacity: 0.05;
+    font-size: 44px;
+    opacity: 0.06;
     pointer-events: none;
     z-index: 0;
     animation-timing-function: var(--ease-in-out);
@@ -120,6 +146,9 @@ body::before {
 .shoe:nth-child(4) { animation-name: shoeDrift1; animation-duration: 32s; animation-delay: -8s; }
 .shoe:nth-child(5) { animation-name: shoeDrift2; animation-duration: 28s; animation-delay: -14s; }
 .shoe:nth-child(6) { animation-name: shoeDrift3; animation-duration: 22s; animation-delay: -20s; }
+.shoe:nth-child(7) { animation-name: shoeDrift1; animation-duration: 35s; animation-delay: -5s; }
+.shoe:nth-child(8) { animation-name: shoeDrift2; animation-duration: 26s; animation-delay: -12s; }
+.shoe:nth-child(9) { animation-name: shoeDrift3; animation-duration: 30s; animation-delay: -18s; }
 
 @keyframes shoeDrift1 {
     0%   { transform: translate(-80px, 20vh) rotate(-15deg) scale(1); opacity: 0; }
