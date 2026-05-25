@@ -59,39 +59,21 @@ WHERE t.is_used = 0
 -- Triggers
 -- ============================================
 
--- Trigger: antes de insertar usuario, limpiar email
 DROP TRIGGER IF EXISTS trg_user_before_insert;
-DELIMITER //
 CREATE TRIGGER trg_user_before_insert
 BEFORE INSERT ON auth_user
 FOR EACH ROW
-BEGIN
-    SET NEW.email = LOWER(TRIM(NEW.email));
-    SET NEW.username = LOWER(TRIM(NEW.username));
-    SET NEW.date_joined = NOW();
-END//
-DELIMITER ;
+SET NEW.email = LOWER(TRIM(NEW.email)),
+    NEW.username = LOWER(TRIM(NEW.username));
 
--- Trigger: antes de actualizar usuario, evitar sobrescribir last_login
 DROP TRIGGER IF EXISTS trg_user_before_update;
-DELIMITER //
 CREATE TRIGGER trg_user_before_update
 BEFORE UPDATE ON auth_user
 FOR EACH ROW
-BEGIN
-    IF OLD.password <> NEW.password THEN
-        SET NEW.last_login = OLD.last_login;
-    END IF;
-END//
-DELIMITER ;
+SET NEW.last_login = COALESCE(OLD.last_login, NEW.last_login);
 
--- Trigger: antes de insertar token, forzar created_at
 DROP TRIGGER IF EXISTS trg_token_before_insert;
-DELIMITER //
 CREATE TRIGGER trg_token_before_insert
 BEFORE INSERT ON accounts_passwordresettoken
 FOR EACH ROW
-BEGIN
-    SET NEW.created_at = NOW();
-END//
-DELIMITER ;
+SET NEW.created_at = NOW();
