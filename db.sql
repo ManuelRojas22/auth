@@ -7,8 +7,7 @@ USE auth_db;
 -- ============================================
 -- Tabla 1: Usuarios (register, login, passwords)
 -- ============================================
-DROP TABLE IF EXISTS auth_user;
-CREATE TABLE auth_user (
+CREATE TABLE IF NOT EXISTS auth_user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     password VARCHAR(128) NOT NULL,
     last_login DATETIME(6) NULL,
@@ -25,8 +24,7 @@ CREATE TABLE auth_user (
 -- ============================================
 -- Tabla 2: Tokens de recuperación (reset password)
 -- ============================================
-DROP TABLE IF EXISTS accounts_passwordresettoken;
-CREATE TABLE accounts_passwordresettoken (
+CREATE TABLE IF NOT EXISTS accounts_passwordresettoken (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     token CHAR(36) NOT NULL UNIQUE,
@@ -39,14 +37,11 @@ CREATE TABLE accounts_passwordresettoken (
 -- ============================================
 -- Vistas
 -- ============================================
-
--- Vista: usuarios activos (para login)
 CREATE OR REPLACE VIEW vw_active_users AS
 SELECT id, username, email, password, is_active, date_joined
 FROM auth_user
 WHERE is_active = 1;
 
--- Vista: tokens válidos (no usados, < 24h)
 CREATE OR REPLACE VIEW vw_valid_reset_tokens AS
 SELECT t.id, t.user_id, t.token, t.created_at,
        u.username, u.email
@@ -58,21 +53,17 @@ WHERE t.is_used = 0
 -- ============================================
 -- Triggers
 -- ============================================
-
-DROP TRIGGER IF EXISTS trg_user_before_insert;
 CREATE TRIGGER trg_user_before_insert
 BEFORE INSERT ON auth_user
 FOR EACH ROW
 SET NEW.email = LOWER(TRIM(NEW.email)),
     NEW.username = LOWER(TRIM(NEW.username));
 
-DROP TRIGGER IF EXISTS trg_user_before_update;
 CREATE TRIGGER trg_user_before_update
 BEFORE UPDATE ON auth_user
 FOR EACH ROW
 SET NEW.last_login = COALESCE(OLD.last_login, NEW.last_login);
 
-DROP TRIGGER IF EXISTS trg_token_before_insert;
 CREATE TRIGGER trg_token_before_insert
 BEFORE INSERT ON accounts_passwordresettoken
 FOR EACH ROW
