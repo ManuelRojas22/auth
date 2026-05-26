@@ -405,6 +405,8 @@ body {
    FLOATING OBJECTS
    ============================================ */
 .float-item {
+    top: 0;
+    left: 0;
     position: fixed;
     pointer-events: none;
     z-index: 0;
@@ -416,54 +418,105 @@ body {
 }
 
 .float-item:nth-child(1)  { animation-name: flA; animation-duration: 24s; }
-.float-item:nth-child(2)  { animation-name: flB; animation-duration: 30s; }
-.float-item:nth-child(3)  { animation-name: flC; animation-duration: 27s; }
-.float-item:nth-child(4)  { animation-name: flD; animation-duration: 33s; animation-delay: -6s; }
-.float-item:nth-child(5)  { animation-name: flE; animation-duration: 26s; animation-delay: -10s; }
-.float-item:nth-child(6)  { animation-name: flA; animation-duration: 35s; animation-delay: -14s; }
-.float-item:nth-child(7)  { animation-name: flB; animation-duration: 28s; animation-delay: -4s; }
-.float-item:nth-child(8)  { animation-name: flC; animation-duration: 32s; animation-delay: -18s; }
-.float-item:nth-child(9)  { animation-name: flD; animation-duration: 22s; animation-delay: -8s; }
-.float-item:nth-child(10) { animation-name: flE; animation-duration: 36s; animation-delay: -12s; }
+.float-item:nth-child(2)  { animation-name: flB; animation-duration: 30s; animation-delay: -7s; }
+.float-item:nth-child(3)  { animation-name: flC; animation-duration: 27s; animation-delay: -3s; }
+.float-item:nth-child(4)  { animation-name: flD; animation-duration: 33s; animation-delay: -12s; }
+.float-item:nth-child(5)  { animation-name: flE; animation-duration: 26s; animation-delay: -5s; }
+.float-item:nth-child(6)  { animation-name: flF; animation-duration: 34s; animation-delay: -16s; }
+.float-item:nth-child(7)  { animation-name: flG; animation-duration: 28s; animation-delay: -2s; }
+.float-item:nth-child(8)  { animation-name: flH; animation-duration: 31s; animation-delay: -9s; }
+.float-item:nth-child(9)  { animation-name: flI; animation-duration: 22s; animation-delay: -13s; }
+.float-item:nth-child(10) { animation-name: flJ; animation-duration: 36s; animation-delay: -1s; }
+.float-item:nth-child(11) { animation-name: flA; animation-duration: 38s; animation-delay: -19s; }
+.float-item:nth-child(12) { animation-name: flB; animation-duration: 25s; animation-delay: -11s; }
+.float-item:nth-child(13) { animation-name: flC; animation-duration: 29s; animation-delay: -6s; }
+.float-item:nth-child(14) { animation-name: flD; animation-duration: 35s; animation-delay: -17s; }
+.float-item:nth-child(15) { animation-name: flE; animation-duration: 23s; animation-delay: -4s; }
+.float-item:nth-child(16) { animation-name: flF; animation-duration: 32s; animation-delay: -14s; }
+.float-item:nth-child(17) { animation-name: flG; animation-duration: 37s; animation-delay: -8s; }
+.float-item:nth-child(18) { animation-name: flH; animation-duration: 26s; animation-delay: -15s; }
+.float-item:nth-child(19) { animation-name: flI; animation-duration: 33s; animation-delay: -10s; }
+.float-item:nth-child(20) { animation-name: flJ; animation-duration: 29s; animation-delay: -18s; }
 
+/* 10 trayectorias que barren toda la pantalla */
 @keyframes flA {
-    0%   { transform: translate(-60px, 10vh) rotate(-10deg); opacity: 0; }
-    12%  { opacity: 0.40; }
-    50%  { transform: translate(50vw, 50vh) rotate(15deg); }
-    88%  { opacity: 0.40; }
+    0%   { transform: translate(-80px, 10vh) rotate(-10deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(50vw, 40vh) rotate(15deg); }
+    90%  { opacity: 0.40; }
     100% { transform: translate(110vw, 20vh) rotate(-5deg); opacity: 0; }
 }
 
 @keyframes flB {
-    0%   { transform: translate(100vw, 70vh) rotate(20deg); opacity: 0; }
-    12%  { opacity: 0.40; }
+    0%   { transform: translate(110vw, 70vh) rotate(20deg); opacity: 0; }
+    10%  { opacity: 0.40; }
     50%  { transform: translate(40vw, 30vh) rotate(-15deg); }
-    88%  { opacity: 0.40; }
-    100% { transform: translate(-50vw, 60vh) rotate(10deg); opacity: 0; }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(-60vw, 80vh) rotate(10deg); opacity: 0; }
 }
 
 @keyframes flC {
-    0%   { transform: translate(30vw, -40px) rotate(0deg); opacity: 0; }
-    12%  { opacity: 0.40; }
-    50%  { transform: translate(60vw, 80vh) rotate(-25deg); }
-    88%  { opacity: 0.40; }
+    0%   { transform: translate(30vw, -50px) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(70vw, 60vh) rotate(-25deg); }
+    90%  { opacity: 0.40; }
     100% { transform: translate(40vw, 110vh) rotate(10deg); opacity: 0; }
 }
 
 @keyframes flD {
-    0%   { transform: translate(-40vw, 50vh) rotate(-15deg); opacity: 0; }
-    12%  { opacity: 0.40; }
-    50%  { transform: translate(30vw, 20vh) rotate(20deg); }
-    88%  { opacity: 0.40; }
-    100% { transform: translate(120vw, 40vh) rotate(-10deg); opacity: 0; }
+    0%   { transform: translate(-50vw, 50vh) rotate(-15deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(30vw, 10vh) rotate(20deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(130vw, 40vh) rotate(-10deg); opacity: 0; }
 }
 
 @keyframes flE {
-    0%   { transform: translate(70vw, -30px) rotate(10deg); opacity: 0; }
-    12%  { opacity: 0.40; }
-    50%  { transform: translate(20vw, 60vh) rotate(-20deg); }
-    88%  { opacity: 0.40; }
-    100% { transform: translate(-30vw, 90vh) rotate(5deg); opacity: 0; }
+    0%   { transform: translate(70vw, -40px) rotate(10deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(15vw, 50vh) rotate(-20deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(-40vw, 90vh) rotate(5deg); opacity: 0; }
+}
+
+@keyframes flF {
+    0%   { transform: translate(80vw, 10vh) rotate(-5deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(20vw, 80vh) rotate(12deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(-60vw, 30vh) rotate(-8deg); opacity: 0; }
+}
+
+@keyframes flG {
+    0%   { transform: translate(-30vw, 80vh) rotate(8deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(60vw, 15vh) rotate(-12deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(120vw, 70vh) rotate(6deg); opacity: 0; }
+}
+
+@keyframes flH {
+    0%   { transform: translate(50vw, 105vh) rotate(-20deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(10vw, 40vh) rotate(18deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(90vw, -30px) rotate(-10deg); opacity: 0; }
+}
+
+@keyframes flI {
+    0%   { transform: translate(10vw, -40px) rotate(14deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(80vw, 70vh) rotate(-18deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(60vw, 110vh) rotate(8deg); opacity: 0; }
+}
+
+@keyframes flJ {
+    0%   { transform: translate(-20vw, 30vh) rotate(-8deg); opacity: 0; }
+    10%  { opacity: 0.40; }
+    50%  { transform: translate(80vw, 60vh) rotate(14deg); }
+    90%  { opacity: 0.40; }
+    100% { transform: translate(40vw, 105vh) rotate(-6deg); opacity: 0; }
 }
 
 /* ============================================
