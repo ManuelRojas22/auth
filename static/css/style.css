@@ -593,5 +593,5 @@ body {
     .form-control { padding: 10px 12px; font-size: 13px; }
     .btn { padding: 10px 16px; font-size: 13px; }
     .form-links a { font-size: 12px; }
-    .float-item { display: none; }
+    .float-item { font-size: 20px; opacity: 0.20; }
 }
