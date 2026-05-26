@@ -44,6 +44,16 @@ auth/
 | `/reset-password/` | `reset_password_request_view` | Solicita token de recuperación por email |
 | `/reset-password/<uuid:token>/` | `reset_password_confirm_view` | Restablece contraseña con token |
 
+## Capturas
+
+| Login | Register |
+|---|---|
+| ![login](screenshots/login.png) | ![register](screenshots/register.png) |
+
+| Update Password | Reset Password | Reset Confirm |
+|---|---|---|
+| ![update](screenshots/update-password.png) | ![reset](screenshots/reset-password.png) | ![reset-confirm](screenshots/reset-confirm.png) |
+
 ## Base de datos (MySQL)
 
 **Conexión:** `root:root@localhost:3306/auth_db`
