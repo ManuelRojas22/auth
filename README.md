@@ -50,9 +50,9 @@ auth/
 |---|---|
 | ![login](screenshots/login.png) | ![register](screenshots/register.png) |
 
-| Update Password | Reset Password | Reset Confirm |
-|---|---|---|
-| ![update](screenshots/update-password.png) | ![reset](screenshots/reset-password.png) | ![reset-confirm](screenshots/reset-confirm.png) |
+| Update Password | Reset Password |
+|---|---|
+| ![update](screenshots/update-password.png) | ![reset](screenshots/reset-password.png) |
 
 ## Base de datos (MySQL)
 
